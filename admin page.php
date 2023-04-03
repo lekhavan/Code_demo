@@ -60,32 +60,27 @@
 			<th>Topic Name</th>
 			<th>Start Date</th>
 			<th>End Date</th>
-			<th></th>
 		</tr>
 		<tr>
 			<td>6Dmakf7re</td>
 			<td>AI</td>
 			<td>26-7-2022</td>
 			<td>29-9-2022</td>
-			<td><button onclick="location.href='update_topic.php'" class="edit">Edit</button></td>
 		</tr>
 		<tr>
 			<td>6Dmakf7re</td>
 			<td>IOT</td>
 			<td>26-7-2022</td>
 			<td>29-9-2022</td>
-			<td><button onclick="location.href='update_topic.php'" class="edit">Edit</button></td>
 		</tr>
 		<tr>
 			<td>6Dmakf7re</td>
 			<td>WEB</td>
 			<td>26-7-2022</td>
 			<td>29-9-2022</td>
-			<td><button onclick="location.href='update_topic.php'" class="edit">Edit</button></td>
 		</tr>
 	</table>
 	<br>
-	<button onclick="location.href='add_topic.php'" class="add">Add New Topic</button>
 	<br>
 </body>
 </html>
