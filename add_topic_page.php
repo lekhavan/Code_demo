@@ -21,7 +21,7 @@
 
 		<input type="submit" name="add_topic" value="Add Article Topic">
         <br>
-		<input type="button" value="Back to Admin Page" onclick="location.href='student_page.php'">
+		<input type="button" value="Back to Student Page" onclick="location.href='student_page.php'">
 	</form>
 </body>
 </html>

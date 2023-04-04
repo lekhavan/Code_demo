@@ -17,48 +17,66 @@
 	<h2><?php echo $student_name ?></h2>
 	<p>Student ID: <?php echo $student_id ?></p>
     <br>
-	<h1>My Topic</h1>
-	<table>
-		<tr>
-			<th>Topic Id</th>
-			<th>Topic Name</th>
-			<th>Start Date</th>
-			<th>End Date</th>
-			<th></th>
-            <th></th>
-		</tr>
-		<tr>
-			<td>6Dmakf7re</td>
-			<td>WEB</td>
-			<td>26-7-2022</td>
-			<td>29-9-2022</td>
-			<td><button onclick="location.href='update_topic.php'" class="edit">Edit</button></td>
-            <td><button class="delete">Delete</button></td>
-		</tr>
-	</table>
-	<br>
-	<button onclick="location.href='add_topic_page.php'" class="add">Add New Topic</button>
+	<button onclick="location.href='add_topic_page.php'" class="add">Add New Post</button>
     <br>
-    <h1>Topic Available</h1>
-    <table>
-        <tr>
-            <th>Topic Id</th>
-            <th>Topic Name</th>
-            <th>Start Date</th>
-			<th>End Date</th>
-        </tr>
-        <tr>
-            <td>6Dmakf7re</td>
-			<td>WEB</td>
-			<td>26-7-2022</td>
-			<td>29-9-2022</td>
-        </tr>
-        <tr>
-            <td>6Dmakf7re</td>
-			<td>AI</td>
-			<td>26-7-2022</td>
-			<td>29-9-2022</td>
-        </tr>
-    </table>
+    <h1>Article Available</h1>
+	<div class="form-container">
+    <form action="process_article.php" method="GET"  enctype="multipart/form-data">
+		<label for="title">Title: Website</label><br>
+		
+		<label for="content">Content: Website is great solutions for business!</label><br>
+
+		<label for="topic">Topic: IT</label><br>
+
+		<label for="status">Status: Waiting</label>
+
+		<label for="comment">Comment: No comment</label>
+
+	</form>
+	<form action="process_article.php" method="GET"  enctype="multipart/form-data">
+		<label for="title">Title: Website</label><br>
+		
+		<label for="content">Content: Website is great solutions for business!</label><br>
+
+		<label for="topic">Topic: IT</label><br>
+
+		<label for="status">Status: Waiting</label>
+
+		<label for="comment">Comment: No comment</label>
+
+	</form>
+	<form action="process_article.php" method="GET"  enctype="multipart/form-data">
+		<label for="title">Title: Website</label><br>
+		
+		<label for="content">Content: Website is great solutions for business!</label><br>
+
+		<label for="topic">Topic: IT</label><br>
+
+		<label for="status">Status: Waiting</label>
+
+		<label for="comment">Comment: No comment</label>
+
+	</form>
+	<form action="process_article.php" method="GET"  enctype="multipart/form-data">
+		<label for="title">Title: Website</label><br>
+		
+		<label for="content">Content: Website is great solutions for business!</label><br>
+
+		<label for="topic">Topic: IT</label><br>
+
+		<label for="status">Status: Waiting</label>
+
+		<label for="comment">Comment: No comment</label>
+
+	</form>
+	</div><br><br>
+	
+	<form class="uploadimg">
+  	<!-- form content here -->
+
+  		<input type="file" id="image-upload" name="image-upload">
+
+  		<button type="submit" class="add">Submit</button>
+	</form>
 </body>
 </html>

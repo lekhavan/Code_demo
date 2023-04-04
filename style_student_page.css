@@ -1,29 +1,29 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    width: 150px; /* set the width to 150px */
-    height: 150px; /* set the height to 150px */
-    object-fit: cover; /* ensure the image fills its container */
-    border-radius: 50%; /* make the image circular */
-  }
-  
-  h2, p {
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 150px; /* set the width to 150px */
+  height: 150px; /* set the height to 150px */
+  object-fit: cover; /* ensure the image fills its container */
+  border-radius: 50%; /* make the image circular */
+}
+
+h2, p {
+  text-align: center;
+}
+
 /* Style for the table */
 table {
   border-collapse: collapse;
@@ -90,3 +90,40 @@ button.short{
 button.short:hover{
     background-color:aqua;
 }
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+/* Style the forms */
+form {
+  display: inline-block;
+  width: 48%;
+  margin-right: 0%;
+  margin-bottom: 2%;
+  background-color: rgb(244, 244, 231);
+  padding-left: 1%;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+/* Style the container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+form.uploadimg{
+  width: auto;
+  padding: 1%;
+}
+
