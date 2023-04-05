@@ -9,62 +9,49 @@
 	<br>
     <table id="myTable">
         <tr>
-            <th>Topic Id</th>
-            <th>Topic Name</th>
-            <th>Start Date</th>
-		    <th>End Date</th>
-            <th></th>
-            <th></th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Status</th>
+		    <th>Post Date</th>
+            <th>Comment</th>
+            <th>Accept/Cancel</th>
         </tr>
         <tr>
-            <td>Abkfd57B</td>
-			<td>Business</td>
-			<td>7-7-2022</td>
+            <td>Life</td>
+			<td>Business is......</td>
+			<td>Not Accept</td>
 			<td>29-3-2023</td>
-            <td><button class="add">Accept</button></td>
-            <td><button class="delete">Cancel</button></td>
+            <td>No comment</td>
+            <td><button class="delete">Accept</button></td>
         </tr>
         <tr>
-            <td>Ffkd45s3</td>
-			<td>Analyze</td>
-			<td>7-7-2022</td>
+            <td>I</td>
+			<td>N......</td>
+			<td>Not Accept</td>
 			<td>29-3-2023</td>
-            <td><button class="add">Accept</button></td>
-            <td><button class="delete">Cancel</button></td>
+            <td>No comment</td>
+            <td><button class="delete">Accept</button></td>
         </tr>
         <tr>
-            <td>Dbkfd57B</td>
-			<td>Evaluation</td>
-			<td>7-7-2022</td>
+            <td>A</td>
+			<td>C......</td>
+			<td>Not Accept</td>
 			<td>29-3-2023</td>
-            <td><button class="add">Accept</button></td>
-            <td><button class="delete">Cancel</button></td>
+            <td>No comment</td>
+            <td><button class="delete">Accept</button></td>
+        </tr>
+        <tr>
+            <td>C</td>
+			<td>K....</td>
+			<td>Not Accept</td>
+			<td>29-3-2023</td>
+            <td>No comment</td>
+            <td><button class="delete">Accept</button></td>
         </tr>
     </table>
     <br>
     <button onclick="sortTable()" class="short">Short By Name</button>
-    <h1>Topic Available</h1>
-    <table>
-        <tr>
-            <th>Topic Id</th>
-            <th>Topic Name</th>
-            <th>Start Date</th>
-			<th>End Date</th>
-        </tr>
-        <tr>
-            <td>6Dmakf7re</td>
-			<td>WEB</td>
-			<td>26-7-2022</td>
-			<td>29-9-2022</td>
-        </tr>
-        <tr>
-            <td>6Dmakf7re</td>
-			<td>AI</td>
-			<td>26-7-2022</td>
-			<td>29-9-2022</td>
-        </tr>
-    </table>
-
+    
     <script>
         function sortTable() {
             var table, rows, switching, i, x, y, shouldSwitch;
@@ -83,8 +70,8 @@
                     shouldSwitch = false;
                                     /* Get the two elements you want to compare,
                 one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[1];
-                y = rows[i + 1].getElementsByTagName("TD")[1];
+                x = rows[i].getElementsByTagName("TD")[0];
+                y = rows[i + 1].getElementsByTagName("TD")[0];
 
                 /* Check if the two rows should switch place,
                 based on the direction, asc or desc: */

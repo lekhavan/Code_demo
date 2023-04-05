@@ -17,7 +17,7 @@
 	<h2><?php echo $student_name ?></h2>
 	<p>Student ID: <?php echo $student_id ?></p>
     <br>
-	<button onclick="location.href='add_topic_page.php'" class="add">Add New Post</button>
+	<button onclick="location.href='add_article.php'" class="add">Add New Post</button>
     <br>
     <h1>Article Available</h1>
 	<div class="form-container">

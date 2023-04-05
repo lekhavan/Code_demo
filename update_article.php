@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Article</title>
+	<title>Update Article</title>
     <link rel="stylesheet" href="styleaddarticle.css">
 </head>
 <body>
-	<h1>Add Article</h1>
+	<h1>Update Article</h1>
 	<form action="process_article.php" method="POST" enctype="multipart/form-data">
 		<label for="title">Title:</label><br>
 		<input type="text" id="title" name="title"><br><br>
@@ -21,9 +21,7 @@
 			<option value="entertainment">Entertainment</option>
 		</select><br><br>
 
-		<input type="file" value="Choose Image" id="image-upload" name="image-upload">
-
-  		<br><br>
+		<input type="file" id="image-upload" name="image-upload"><br><br>
 
 		<input type="submit" value="Submit">
 	</form>
