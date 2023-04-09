@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="stylesss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<header>
+    <div class="logo">
+        <img src="images/logo.jpg" alt="University Icon">
+      </div>
+<div class="searchbox">
+    <input type="text" placeholder="Search for ...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+<div class="us-action">
+    <a href="login.html">Login</a>
+</div>
+</header>
+<body>
+<div class="topic">
+    <label id="btn-bar" for="nv-bar"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></label>
+    <input type="checkbox" id="nv-bar">
+</div>
+<div class="idea"></div>
+<script>
+var btnBar = document.getElementById("btn-bar");
+var topic = document.querySelector(".topic");
+var idea = document.querySelector(".idea");
+
+
+btnBar.addEventListener("click", function() {
+  if (window.innerWidth <= 600) {
+    if (topic.style.height == "40vh") {
+      topic.style.height = "6vh";
+      topic.style.width = "100%";
+      idea.style.height = "94vh";
+      idea.style.width = "100%";
+    } else {
+      topic.style.height = "40vh";
+      topic.style.width = "100%";
+      idea.style.height = "60vh";
+      idea.style.width = "100%";
+    }
+  } else {
+    if (topic.style.width == "35%") {
+      topic.style.width = "5%";
+      topic.style.height = "100vh";
+      idea.style.width = "95%";
+      idea.style.height = "100vh";
+    } else {
+      topic.style.width = "35%";
+      topic.style.height = "100vh";
+      idea.style.width = "65%";
+      idea.style.height = "100vh";
+    }
+  }
+});
+</script>
+
+
+    
+</body>
+</html>
