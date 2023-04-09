@@ -80,6 +80,12 @@ header{
     background-color: #bfa9a9;
     transition: width 0.5s;
 }
+.topic-contents{
+  font-size: 20px;
+}
+.topic-contents p{
+  padding: 5px;
+}
 
   #btn-bar{
     padding: 5px;
@@ -91,9 +97,200 @@ header{
     width: 65%;
     height: 100vh;
     float: left;
-    background-color: #574c4c;
+    background-color: #dcd6d6;
     transition: width 0.5s;
 }
+/* Style for post container */
+.post {
+  background-color: #c7c6c6;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  }
+  
+  /* Style for post header */
+  .post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
+  
+  /* Style for post meta data */
+  .post-meta {
+  display: flex;
+  align-items: center;
+  }
+  
+  /* Style for username */
+  .username {
+  margin-right: 10px;
+  }
+  
+  /* Style for post timestamp */
+  .timestamp {
+  font-size: 12px;
+  color: #888;
+  }
+  
+  /* Style for post body */
+  .post-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  }
+  
+  /* Style for post image */
+  .post-image {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  }
+  
+  /* Style for post footer */
+  .post-footer {
+  display: flex;
+  justify-content:space-around;
+  margin-top: 10px;
+  }
+  
+  /* Style for like button */
+  .like-button {
+    width: 60px;
+  background-color: #f2f2f2;
+  border: none;
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  .dislike-button {
+    width: 60px;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  
+  /* Style for comment button */
+  .comment-button {
+    width: 60px;
+  background-color: #f2f2f2;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  }
+  .comment-form {
+    margin-top: 10px;
+    }
+    
+    .comment-input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    }
+    
+    .submit-button {
+    background-color: #4267B2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    }
+
+
+
+
+
+    .comment-count {
+      color: #888;
+      font-size: 12px;
+      }
+      
+      /* Style for Comment section */
+      .comment-section {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 20px;
+      padding: 10px;
+      }
+      
+      .comment {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      }
+      
+      .comment-header {
+      display: flex;
+      align-items: center;
+      }
+      
+      .comment-meta {
+      display: flex;
+      align-items: center;
+      }
+      
+      .comment-username {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 10px;
+      }
+      
+      .comment-timestamp {
+      color: #888;
+      font-size: 12px;
+      }
+      
+      .comment-text {
+      margin-top: 5px;
+      }
+      
+      .comment-actions {
+      display: flex;
+      justify-content: space-between;
+      }
+    
+      .reply-button, .like-button-cmt, .dislike-button-cmt {
+        border: none;
+        width: 50px;
+        height: 35px;
+        background-color:rgb(255, 255, 255) ;
+        color: #c87d7d;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 5px;
+        }
+      .reply-button {
+      margin-right: 10px;
+      }
+      
+      .comment-form {
+      margin-top: 10px;
+      }
+      
+      .comment-input {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      }
+      
+      .submit-button {
+      background-color: #4267B2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      }
 @media only screen and (max-width: 600px) {
     .topic {
       width: 100%;
