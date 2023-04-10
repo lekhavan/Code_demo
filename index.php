@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once("connection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +15,20 @@
 </head>
 <header>
     <div class="logo">
-        <img src="images/logo.jpg" alt="University Icon">
+        <a href="index.php"><img src="images/logo.jpg" alt="University Icon"></a>
       </div>
 <div class="searchbox">
     <input type="text" placeholder="Search for ...">
     <button type="submit"><i class="fa fa-search"></i></button>
   </div>
 <div class="us-action">
-    <a href="login.html">Login</a>
+  <?php
+  if(isset($_SESSION['email'])&&$_SESSION['email']!=null){?>
+    <a href="#"><?php echo $_SESSION['email']; ?></a>
+  <?php } else{
+  ?>
+    <a href="login page.php">Login</a>
+    <?php }?>
 </div>
 </header>
 <body>
@@ -40,69 +50,101 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "No topics have been added yet";
 }
-
-// Đóng kết nối
-mysqli_close($conn);
 ?>
     </div>
 </div>
 
 <div class="idea">
-  
-  <div class="post">
-    <div class="post-header">
-      <div class="post-meta">
-        <h4 class="username">Username</h4>
-        <p class="timestamp">Timestamp</p>
+  <?php
+  $idea_sql = "SELECT Users.Email,Ideas.IdeaID, Ideas.SubmissionDate, Ideas.Description, COUNT(Thumbs.ThumbID) AS Likes, COUNT(CASE WHEN Thumbs.Vote = 0 THEN 1 END) AS Dislikes
+  FROM Ideas
+  INNER JOIN Users ON Ideas.UserID = Users.UserID
+  LEFT JOIN Thumbs ON Ideas.IdeaID = Thumbs.IdeaID
+  GROUP BY Ideas.IdeaID, Users.Email, Ideas.SubmissionDate, Ideas.Description
+  ORDER BY Ideas.SubmissionDate DESC";
+  $idea_result = mysqli_query($conn, $idea_sql);
+  if (mysqli_num_rows($idea_result) > 0) {
+    while ($idea_row = mysqli_fetch_assoc($idea_result)) {
+      ?>
+
+      <div class="post">
+        <div class="post-header">
+          <div class="post-meta">
+            <h4 class="username">
+              <?php echo $idea_row['Email']; ?>
+            </h4>
+            <p class="timestamp">
+              <?php echo $idea_row['SubmissionDate']; ?>
+            </p>
+          </div>
+        </div>
+        <div class="post-body">
+          <p>
+            <?php echo $idea_row['Description']; ?>
+          </p>
+          <?php
+      // Kết nối tới cơ sở dữ liệu
+      include_once('connection.php');
+      // Lấy danh sách các document từ cơ sở dữ liệu
+      $IdeaID = $idea_row['IdeaID'];
+      $sql = "SELECT * FROM documents where IdeaID = $IdeaID";
+      $result = $conn->query($sql);
+      // Hiển thị danh sách document
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          ?>
+                    <div class="post-document">
+                    <a href='download.php?id=<?php echo $row['DocumentID'];?>'><?php echo $row['DocumentName']; ?></a>
+          </div>
+          <?php
+        }
+      }
+      ?>
+
+          
+
+          <img class="post-image" src="images/logo.jpg">
+        </div>
+        <div class="post-footer">
+          <button class="like-button">
+            <?php echo $idea_row['Likes']; ?><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"> </i>
+          </button>
+          <button class="dislike-button">
+            <?php echo $idea_row['Dislikes']; ?><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"> </i>
+          </button>
+          <button class="comment-button"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></button>
+        </div>
+        <hr style="margin: 5px;">
+        <div class="post-comments">
+
+        </div>
+        <div class="comment">
+          <div class="comment-header">
+            <h4 class="username">Username</h4>
+            <p class="timestamp">Timestamp</p>
+          </div>
+          <div class="comment-body">
+            <p>Comment content goes here.</p>
+          </div>
+          <div class="comment-footer">
+            <button class="like-button-cmt"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
+            <button class="dislike-button-cmt"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
       </div>
-    </div>
-    <div class="post-body">
-      <p>Content of the post goes here.</p>
-      <img class="post-image" src="images/logo.jpg">
-    </div>
-    <div class="post-footer">
-      <button class="like-button"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
-      <button class="dislike-button"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></button>
-      <button class="comment-button"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></button>
-    </div>
-    <hr style="margin: 5px;">
-    <div class="post-comments">
-      <div class="comment">
-        <div class="comment-header">
-          <h4 class="username">Username</h4>
-          <p class="timestamp">Timestamp</p>
-        </div>
-        <div class="comment-body">
-          <p>Comment content goes here.</p>
-        </div>
-        <div class="comment-footer">
-          <button class="like-button-cmt"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
-          <button class="dislike-button-cmt"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></button>
-        </div>
-        
-      </div>
-      <div class="comment">
-        <div class="comment-header">
-          <h4 class="username">Username</h4>
-          <p class="timestamp">Timestamp</p>
-        </div>
-        <div class="comment-body">
-          <p>Comment content goes here.</p>
-        </div>
-        <div class="comment-footer">
-          <button class="like-button-cmt"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
-          <button class="dislike-button-cmt"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></button>
-        </div>
-      </div>
-      
-    </div>
-    <form class="comment-form">
+      <form class="comment-form">
         <textarea class="comment-input" placeholder="Write a comment..."></textarea>
         <button class="comment-submit">Comment</button>
       </form>
-  </div>
+    
+    <?php
+    }
+  }
+  ?>
+</div>
 
-  </div>
+</div>
 </div>
 <script>
 var btnBar = document.getElementById("btn-bar");
