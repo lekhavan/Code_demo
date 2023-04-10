@@ -29,7 +29,7 @@ header{
     margin: 20px;
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 400px;
     height: 40px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -75,9 +75,9 @@ header{
   }
   .topic {
     width: 35%;
-    height: 100vh;
+    height: 100%;
     float: left;
-    background-color: #bfa9a9;
+    background-color: #fdfdfd;
     transition: width 0.5s;
 }
 .topic-contents{
@@ -95,9 +95,9 @@ header{
   }
   .idea {
     width: 65%;
-    height: 100vh;
+    height: 100%;
     float: left;
-    background-color: #dcd6d6;
+    background-color: #ebd5d5;
     transition: width 0.5s;
 }
 /* Style for post container */
@@ -195,7 +195,10 @@ header{
     border-radius: 5px;
     margin-bottom: 10px;
     }
-    
+    .post-comments{
+      height: 300px;
+      overflow-y: scroll;
+    }
     .submit-button {
     background-color: #4267B2;
     color: #fff;
@@ -225,6 +228,7 @@ header{
       .comment {
       margin-top: 10px;
       margin-bottom: 10px;
+
       }
       
       .comment-header {
@@ -261,8 +265,8 @@ header{
         border: none;
         width: 50px;
         height: 35px;
-        background-color:rgb(255, 255, 255) ;
-        color: #c87d7d;
+        background-color:transparent ;
+        color: #5b4545;
         cursor: pointer;
         font-size: 14px;
         border-radius: 5px;

@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="stylesss.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="scripts.js"></script>
 </head>
 <header>
     <div class="logo">
@@ -25,11 +26,27 @@
     <label id="btn-bar" for="nv-bar"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></label>
     <input type="checkbox" id="nv-bar">
     <div class="topic-contents">
-      <p>Chủ đời một</p>
-      <p>Chủ đời hai</p>
-      <p>Chủ đời ba</p>
+    <?php
+include_once('connection.php');
+// Truy vấn cơ sở dữ liệu
+$sql = "SELECT * FROM IdeaCategories";
+$result = mysqli_query($conn, $sql);
+
+// Hiển thị kết quả truy vấn
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<p>" . $row["CategoryName"] . "</p>";
+    }
+} else {
+    echo "No topics have been added yet";
+}
+
+// Đóng kết nối
+mysqli_close($conn);
+?>
     </div>
 </div>
+
 <div class="idea">
   
   <div class="post">
@@ -77,11 +94,12 @@
           <button class="dislike-button-cmt"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></button>
         </div>
       </div>
-      <form class="comment-form">
+      
+    </div>
+    <form class="comment-form">
         <textarea class="comment-input" placeholder="Write a comment..."></textarea>
         <button class="comment-submit">Comment</button>
       </form>
-    </div>
   </div>
 
   </div>
@@ -90,32 +108,36 @@
 var btnBar = document.getElementById("btn-bar");
 var topic = document.querySelector(".topic");
 var idea = document.querySelector(".idea");
-
+var topicContents = document.querySelector(".topic-contents");
 
 btnBar.addEventListener("click", function() {
   if (window.innerWidth <= 600) {
-    if (topic.style.height == "40vh") {
-      topic.style.height = "6vh";
+    if (topic.style.height == "40%") {
+      topic.style.height = "6%";
       topic.style.width = "100%";
-      idea.style.height = "94vh";
+      idea.style.height = "94%";
       idea.style.width = "100%";
+      topicContents.style.display = "none";
     } else {
-      topic.style.height = "40vh";
+      topic.style.height = "40%";
       topic.style.width = "100%";
-      idea.style.height = "60vh";
+      idea.style.height = "60%";
       idea.style.width = "100%";
+      topicContents.style.display = "block";
     }
   } else {
     if (topic.style.width == "35%") {
       topic.style.width = "5%";
-      topic.style.height = "100vh";
+      topic.style.height = "100%";
       idea.style.width = "95%";
-      idea.style.height = "100vh";
+      idea.style.height = "100%";
+      topicContents.style.display = "none";
     } else {
       topic.style.width = "35%";
-      topic.style.height = "100vh";
+      topic.style.height = "100%";
       idea.style.width = "65%";
-      idea.style.height = "100vh";
+      idea.style.height = "100%";
+      topicContents.style.display = "block";
     }
   }
 });
