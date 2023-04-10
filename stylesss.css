@@ -145,7 +145,14 @@ header{
   margin-top: 10px;
   margin-bottom: 10px;
   }
-  
+  .post-document {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
   /* Style for post footer */
   .post-footer {
   display: flex;
@@ -196,7 +203,7 @@ header{
     margin-bottom: 10px;
     }
     .post-comments{
-      height: 300px;
+      max-height: 250px;
       overflow-y: scroll;
     }
     .submit-button {
