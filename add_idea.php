@@ -62,7 +62,7 @@ if(isset($_POST['add-idea'])){
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("sssssiii", $title, $description, $submission_date, $closure_date, $final_closure_date, $anonymous, $status, $_SESSION['user_id']);
   $stmt->execute();
-  $$idea_id = $stmt->insert_id;
+  $idea_id = $stmt->insert_id;
   
   // check if a file was uploaded
   if ($_FILES["document"]["error"] > 0) {
@@ -72,15 +72,19 @@ if(isset($_POST['add-idea'])){
     $fileType = $_FILES["document"]["type"];
     $fileContent = addslashes(file_get_contents($_FILES["document"]["tmp_name"]));
     $documentName = $_FILES["document"]["name"];
-    
+    $uploadPath = "images/" . $documentName;
+    // Nếu document là hình ảnh thì lưu ảnh vào thư mục images
+    if (in_array(strtolower(pathinfo($documentName, PATHINFO_EXTENSION)), array('jpg', 'jpeg', 'png', 'gif'))) {
+      move_uploaded_file($_FILES["document"]["tmp_name"], $uploadPath);
+    }
     $sql = "INSERT INTO `documents` (`FileType`, `FileContent`, `IdeaID`, `DocumentName`) 
-            VALUES ('$fileType', '$fileContent', '$$idea_id', '$documentName')";
-
+            VALUES ('$fileType', '$fileContent', '$idea_id', '$documentName')";
     if ($conn->query($sql) === TRUE) {
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
   }
+  
   
   // insert the data into the IdeaCategoryMapping table
   $sql = "INSERT INTO IdeaCategoryMapping (IdeaID, IdeaCategoryID) VALUES (?, ?)";
